@@ -3,8 +3,8 @@
 <package format="3">
   <name>b_rover_description</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="bavantha@todo.todo">bavantha</maintainer>
+  <description>B Rover Description</description>
+  <maintainer email="bavanthau@eng.pdn.ac.lk">bavantha</maintainer>
   <license>TODO: License declaration</license>
 
   <exec_depend>gazebo_ros_pkgs</exec_depend>
