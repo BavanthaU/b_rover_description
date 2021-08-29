@@ -1,0 +1,202 @@
+<?xml version="1.0" ?>
+<robot name="b_rover">
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="camera_link"/>
+    <origin rpy="0 0 0" xyz="0   0   0.06"/>
+    <axis xyz="0 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="sonar_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="sonar_link"/>
+    <origin rpy="0 0 0" xyz="0.04 0   0.03"/>
+    <axis xyz="0 0 0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="fl_wheel_hinge" type="fixed">
+    <parent link="chassis"/>
+    <child link="front_left_wheel"/>
+    <origin rpy="0     1.5707 1.5707" xyz="-0.025    0.03     0.01499"/>
+    <axis xyz="9.e-05 9.e-05 1.e+00"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="fr_wheel_hinge" type="fixed">
+    <parent link="chassis"/>
+    <child link="front_right_wheel"/>
+    <origin rpy="0     1.5707 1.5707" xyz="-0.02499 -0.03     0.015"/>
+    <axis xyz="9.e-05 9.e-05 1.e+00"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="bl_wheel_hinge" type="fixed">
+    <parent link="chassis"/>
+    <child link="back_left_wheel"/>
+    <origin rpy="0     1.5707 1.5707" xyz="0.02499 0.03    0.01499"/>
+    <axis xyz="9.e-05 9.e-05 1.e+00"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="br_wheel_hinge" type="fixed">
+    <parent link="chassis"/>
+    <child link="back_right_wheel"/>
+    <origin rpy="0     1.5707 1.5707" xyz="0.025 -0.03   0.015"/>
+    <axis xyz="9.e-05 9.e-05 1.e+00"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+
+    <joint name = "base_joint"  type = "fixed">
+        <parent link="world"/>
+        <child link="chassis"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+        <axis xyz="0 1 0" rpy="0 0 0" />
+    </joint>
+
+  <link  name =  "world"/>
+
+  <link name="chassis">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0    0    0.021"/>
+      <geometry>
+        <box size=".07 .06 .034"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0     0     1.5707" xyz="0    0    0.006"/>
+      <geometry>
+        <mesh filename="package://b_rover_description/models/b_rover/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="front_left_wheel">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0    0    0.011"/>
+      <geometry>
+        <cylinder length=".02" radius=".015"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0     1.5707 1.5707" xyz="0.0267 -0.0083 -0.023"/>
+      <geometry>
+        <mesh filename="package://b_rover_description/models/b_rover/meshes/master_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="front_right_wheel">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0     0    -0.011"/>
+      <geometry>
+        <cylinder length=".02" radius=".015"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0     -1.5707  1.5707" xyz="0.0268 0.008  0.023"/>
+      <geometry>
+        <mesh filename="package://b_rover_description/models/b_rover/meshes/master_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="back_left_wheel">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0    0    0.011"/>
+      <geometry>
+        <cylinder length=".02" radius=".015"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0     1.5707 1.5707" xyz="0.0268 -0.008  -0.023"/>
+      <geometry>
+        <mesh filename="package://b_rover_description/models/b_rover/meshes/master_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="back_right_wheel">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0     0    -0.011"/>
+      <geometry>
+        <cylinder length=".02" radius=".015"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0     -1.5707  1.5707" xyz="0.0268 0.008  0.023"/>
+      <geometry>
+        <mesh filename="package://b_rover_description/models/b_rover/meshes/master_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="sonar_link">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="camera_link">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  
+</robot>

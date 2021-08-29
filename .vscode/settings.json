@@ -10,5 +10,6 @@
         "/home/bavantha/ros2_ws/install/warehouse_robot_controller_pkg/lib/python3.8/site-packages",
         "/home/bavantha/ros2_ws/install/turtlesim/lib/python3.8/site-packages",
         "/opt/ros/foxy/lib/python3.8/site-packages"
-    ]
+    ],
+    "ros.distro": "foxy"
 }

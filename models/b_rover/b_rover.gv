@@ -1,0 +1,23 @@
+digraph G {
+node [shape=box];
+"chassis" [label="chassis"];
+"back_left_wheel" [label="back_left_wheel"];
+"back_right_wheel" [label="back_right_wheel"];
+"camera_link" [label="camera_link"];
+"front_left_wheel" [label="front_left_wheel"];
+"front_right_wheel" [label="front_right_wheel"];
+"sonar_link" [label="sonar_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"chassis" -> "bl_wheel_hinge" [label="xyz: 0.02499 0.03 0.01499 \nrpy: 0 1.5708 1.5707"]
+"bl_wheel_hinge" -> "back_left_wheel"
+"chassis" -> "br_wheel_hinge" [label="xyz: 0.025 -0.03 0.015 \nrpy: 0 1.5708 1.5707"]
+"br_wheel_hinge" -> "back_right_wheel"
+"chassis" -> "camera_joint" [label="xyz: 0 0 0.06 \nrpy: 0 -0 0"]
+"camera_joint" -> "camera_link"
+"chassis" -> "fl_wheel_hinge" [label="xyz: -0.025 0.03 0.01499 \nrpy: 0 1.5708 1.5707"]
+"fl_wheel_hinge" -> "front_left_wheel"
+"chassis" -> "fr_wheel_hinge" [label="xyz: -0.02499 -0.03 0.015 \nrpy: 0 1.5708 1.5707"]
+"fr_wheel_hinge" -> "front_right_wheel"
+"chassis" -> "sonar_joint" [label="xyz: 0.04 0 0.03 \nrpy: 0 -0 0"]
+"sonar_joint" -> "sonar_link"
+}

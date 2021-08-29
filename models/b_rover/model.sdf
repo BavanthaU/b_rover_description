@@ -214,7 +214,7 @@
            </geometry>
          </collision>
 
-          <sensor type="camera" name="camera1">
+          <sensor type="camera" name="camera_link">
             <update_rate>30.0</update_rate>
             <camera name="head">
               <horizontal_fov>1.3962634</horizontal_fov>
