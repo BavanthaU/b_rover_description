@@ -57,34 +57,6 @@
         <axis xyz="0 1 0" rpy="0 0 0" />
     </joint>
 
- <gazebo>
-    <plugin filename="libgazebo_ros_diff_drive.so" name="diff_drive">
-
-          <ros>
-           <namespace>/b_rover</namespace>
-           <remapping>cmd_vel:=cmd_vel</remapping>
-           <remapping>odom:=odom</remapping>
-         </ros>
-      <!-- wheels -->
-      <left_joint>fl_wheel_hinge</left_joint>
-      <right_joint>fr_wheel_hinge</right_joint>
-
-      <!-- kinematics -->
-      <wheel_separation>0.06</wheel_separation>
-      <wheel_diameter>0.03</wheel_diameter>
-
-      <!-- limits -->
-      <max_wheel_torque>0.1</max_wheel_torque>
-      <max_wheel_acceleration>0.5</max_wheel_acceleration>
-
-      <!-- output -->
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf>
-
-      <odometry_frame>odom</odometry_frame>
-      <robot_base_frame>chassis</robot_base_frame>
-    </plugin>
-  </gazebo>
 
 
   <link  name =  "world"/>

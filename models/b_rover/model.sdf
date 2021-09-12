@@ -164,7 +164,7 @@
               <scan>
               <!-- Range for HC SR04 is 30 Deg -->
                   <horizontal>
-                    <samples>10</samples>
+                    <samples>30</samples>
                     <resolution>1</resolution> 
                     <min_angle>-0.13</min_angle>
                     <max_angle>0.13</max_angle>
@@ -183,14 +183,18 @@
                   <resolution>0.02</resolution>
               </range>
             </ray>
+            <always_on>1</always_on>
+            <update_rate>10</update_rate>
+            <visualize>true</visualize>
+
             <plugin filename="libgazebo_ros_ray_sensor.so" name="gazebo_ros_range">
               <gaussianNoise>0.005</gaussianNoise>
-              <alwaysOn>true</alwaysOn>
-              <updateRate>50</updateRate>
-              <topicName>/b_senor/sensor/sonar</topicName>
-              <frameName>sonar_link</frameName>
               <radiation>ULTRASONIC</radiation>
-              <fov>0.2967</fov>
+              <ros>
+               <namespace>/b_rover</namespace>
+               <argument>--ros-args --remap ~/out:=scan</argument>
+             </ros>
+             <output_type>sensor_msgs/LaserScan</output_type>
             </plugin>
         </sensor>  
        </link>
@@ -198,7 +202,7 @@
        <!-- Add the Omni Directional Camera -->
           <!-- Camera -->
         <link name="camera_link">
-        <pose>0.0 0 0.06 0 0 0</pose>
+        <pose>0 0 0.06 0 0 0</pose>
          <visual name="visual">
            <geometry>
              <box>
@@ -217,7 +221,7 @@
           <sensor type="camera" name="camera_link">
             <update_rate>30.0</update_rate>
             <camera name="head">
-              <horizontal_fov>1.3962634</horizontal_fov>
+              <horizontal_fov>1.37</horizontal_fov>
               <image>
                 <width>800</width>
                 <height>800</height>
@@ -235,7 +239,7 @@
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
               <alwaysOn>true</alwaysOn>
-              <updateRate>0.0</updateRate>
+              <updateRate>30</updateRate>
               <cameraName>/b_rover/camera</cameraName>
               <imageTopicName>image_raw</imageTopicName>
               <cameraInfoTopicName>camera_info</cameraInfoTopicName>
@@ -309,8 +313,8 @@
          <right_joint>fr_wheel_hinge</right_joint>
          <wheel_separation>0.06</wheel_separation>
          <wheel_diameter>0.03</wheel_diameter>
-         <max_wheel_torque>2s</max_wheel_torque>
-         <max_wheel_acceleration>0.05</max_wheel_acceleration>
+         <max_wheel_torque>0.25</max_wheel_torque>
+         <max_wheel_acceleration>0.02</max_wheel_acceleration>
          <publish_odom>true</publish_odom>
          <publish_odom_tf>true</publish_odom_tf>
          <publish_wheel_tf>true</publish_wheel_tf>

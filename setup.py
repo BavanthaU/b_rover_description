@@ -18,8 +18,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         
         # Path to the launch file      
-        (os.path.join('share', package_name,'launch'), glob('launch/*.launch.py')),
-
+        (os.path.join('share', package_name,'launch'), glob('launch/*.py')),
         # Path to the world file
         (os.path.join('share', package_name,'worlds/'), glob('./worlds/*')),
 
@@ -41,7 +40,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-          'b_rover_demo = b_rover_description.b_rover_demo:main'
+          'b_rover_demo = b_rover_description.b_rover_demo:main',
+          'spawn_b_rover=b_rover_description.spawn_b_rover:main'
         ],
     },
 )
